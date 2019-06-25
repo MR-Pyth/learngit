@@ -1,0 +1,280 @@
+Android面试题
+Android面试题除了Android基础之外，更多的问的是一些源码级别的、原理这些等。所以想去大公司面试，一定要多看看源码和实现方式，常用框架可以试试自己能不能手写实现一下，锻炼一下自己。
+
+一、Android基础知识点
+1、四大组件是什么
+2、四大组件的生命周期和简单用法
+3、Activity之间的通信方式
+	Intent、静态变量、全局变量及Application、本地haul存储、广播、EventBus
+
+4、Activity各种情况下的生命周期
+Activity 你真的熟悉吗？看了才知道：https://juejin.im/entry/5794d79c6be3ff00660ef6b0
+
+5、横竖屏切换的时候，Activity 各种情况下的生命周期
+浅析Activity横竖屏切换时的生命周期：https://blog.csdn.net/qq_36713816/article/details/80538467
+
+6、Activity与Fragment之间生命周期比较
+一句话、一张图记住Activity和Fragment之间错综复杂的生命周期关系：https://blog.csdn.net/u012702547/article/details/50253955
+
+7、Activity上有Dialog的时候按Home键时的生命周期
+https://blog.csdn.net/xiyoucode/article/details/79595815
+
+8、两个Activity 之间跳转时必然会执行的是哪几个方法？
+https://blog.csdn.net/m_xiaoer/article/details/72881082
+
+9、Activity的四种启动模式对比
+Android 面试：说说 Android 的四种启动模式:https://juejin.im/entry/59ed335ff265da43247f97b6
+
+10、Activity状态保存于恢复、Fragment状态保存
+Android Activity 和 Fragment 状态保存与恢复的最佳实践：https://juejin.im/post/5860b20b1b69e6006cdf5c8e
+
+11、fragment各种情况下的生命周期
+和Activity的生命周期相关
+fragment生命周期总结:https://juejin.im/post/5a1c068b6fb9a045030fcf8c
+
+❤ 12、startActivityForResult是哪个类的方法，在什么情况下使用？
+彻底搞懂startActivityForResult在FragmentActivity和Fragment中的异同：https://blog.csdn.net/barryhappy/article/details/53229238
+
+13、fragment之间传递数据的方式？
+   1、getActivity.getFragmentManager().findFragmentById     2、观察者模式/广播     3、EventBus
+
+14、IntentService
+	看源码
+
+15、请描述一下Service 的生命周期
+牢补基础,话说Service那点事：https://juejin.im/post/59f67ca06fb9a0450c48ad4d
+Android Service和IntentService知识点详细总结：https://juejin.im/post/5914431944d904006c3fae59
+
+16、谈谈你对ContentProvider的理解
+ContentProvider从入门到精通：https://www.jianshu.com/p/f5ec75a9cfea
+https://developer.android.com/guide/topics/providers/content-provider-creating.html#java
+
+17、说说ContentProvider、ContentResolver、ContentObserver 之间的关系
+
+18、请描述一下广播BroadcastReceiver的理解
+Android Broadcast广播机制分析:http://gityuan.com/2016/06/04/broadcast-receiver/
+
+19、广播使用的方式和场景
+广播的使用场景:https://www.jianshu.com/p/5a983578418e
+
+20、LocalBroadcastReceiver 
+LocalBroadcastManager原理分析:http://gityuan.com/2017/04/23/local_broadcast_manager/
+底层通过Handler，同一进程的多线程通信
+
+21、AlertDialog,popupWindow,Activity区别
+Dialog和PopUpWindow的抉择：https://www.jianshu.com/p/e588d74b5c9f
+
+22、Application 和 Activity 的 Context 对象的区别
+Android Context上下文你必须知道的一切：https://blog.csdn.net/lmj623565791/article/details/40481055
+Android中的Context详解：https://www.race604.com/android-context-intro/
+
+23、LinearLayout、RelativeLayout、FrameLayout的特性及对比，并介绍使用场景。
+RelativeLayout和LinearLayout性能比较：https://blog.csdn.net/guyuealian/article/details/52162774
+
+24、谈谈对接口与回调的理解
+接口回调的理解：https://www.jianshu.com/p/345e36572e66
+
+25、RecycleView的使用、优化
+RecycleView性能优化：https://www.jianshu.com/p/4809e1872f50
+RecyclerView 复用错乱通用解法：https://blog.csdn.net/MeloDev/article/details/76691951
+探究RecyclerView的ViewHolder复用：https://www.jianshu.com/p/d7ec36aa8e4b
+
+二、Android源码相关分析
+26、Android动画框架实现原理
+
+27、View的事件分发
+《Android开发艺术探索》
+
+28、Android View绘制流程
+《Android开发艺术探索》
+performMeasure、performLayout、performDraw
+
+29、Activity-Window-View三者的差别
+从问题出发，解析Activity、Window、View三者关系：https://juejin.im/entry/59a3ab465188252445327481
+
+30、invalidate和postInvalidate的区别及使用
+postInvalidate在子线程中执行,通过Handler调用Invalidate
+Android View刷新原理：https://blog.csdn.net/u010019468/article/details/72792558
+
+31、自定义View如何考虑机型适配
+		合理使用warp_content，match_parent.
+		尽可能的是使用RelativeLayout
+		针对不同的机型，使用不同的布局文件放在对应的目录下，android会自动匹配。
+		尽量使用点9图片。
+		使用与密度无关的像素单位dp，sp
+		引入android的百分比布局。
+		切图的时候切大分辨率的图，应用到布局当中。在小分辨率的手机上也会有很好的显示效果。
+
+32、低版本SDK如何实现高版本api？
+判断版本号，自己实现低版本
+https://www.liaohuqiu.net/cn/posts/using-high-api-level-method-compatibly/
+
+❤ 33、Bitmap对象的理解、优化
+http://www.codexiu.cn/android/blog/26859/
+
+34、AstncTask+HttpClient 与 AsyncHttpClient有什么区别？
+
+35、LaunchMode应用场景
+Activity LaunchMode 应用场景：https://xiazdong.github.io/2015/03/08/android-launchmode/
+
+36、looper架构
+❤ 从源码的角度解析Handler、Looper、Message和MessageQueue：https://juejin.im/entry/595b32f9f265da6c386cec36
+
+❤ 37、ActivityThread
+关于Android主线程(ActivityThread)源代码分析：https://blog.csdn.net/shifuhetudi/article/details/52089562
+
+38、IntentService原理及作用是什么？
+	内部持有Handler和HandlerThread
+
+39、SP是进程同步的吗?有什么方法做到同步？
+https://blog.csdn.net/liyang_nash/article/details/79227441
+
+40、RecycleView原理
+
+41、AndroidManifest的作用与理解
+AndroidManifest--你真的理解了吗：https://www.jianshu.com/p/6ed30112d4a4
+
+
+三、常见的一些原理性问题
+Handler机制和底层实现
+42、彻底理解handler的实现原理：https://blog.csdn.net/wanghao200906/article/details/51355018
+《Android开发艺术探索》
+
+43、AMS，WMS的工作原理
+Android系统服务 —— WMS与AMS：https://www.jianshu.com/p/47eca41428d6
+
+44、Handler、Thread和HandlerThread的差别
+Android HandlerThread 完全解析：https://blog.csdn.net/lmj623565791/article/details/47079737
+
+45、ThreadLocal原理，实现及如何保证Local属性？
+https://juejin.im/post/5c805cb9f265da2d9e177f6d
+
+❤ 46、AsyncTask机制
+《Android开发艺术探索》
+
+47、AsyncTask原理及不足，如何取消AsyncTask？
+Android中糟糕的AsyncTask：https://droidyue.com/blog/2014/11/08/bad-smell-of-asynctask-in-android/
+Android 中更安全的使用 AsyncTask：https://juejin.im/entry/574fdef8207703006c581e13
+取消：AsyncTask.cancel(true) -> FutureTask.cancel(true) -> doInBackground()响应中断
+
+48、为什么不能在子线程更新UI？
+《Android开发艺术探索》 第10章 Android消息机制
+
+49、Bundle原理
+ArrayMap原理：https://juejin.im/post/593f5aa8128fe1006afbfc4f
+Android传值Intent和Bundle区别：http://tryenough.com/android-intent-bundle
+
+50、前台服务
+https://www.cnblogs.com/renhui/p/8575299.html
+Android 8.0以后 ==> NotificationManager.startServiceInForeground()
+
+51、前台广播为什么比后台广播快？
+Broadcast之前/后台广播队列：https://juejin.im/post/5c13a61c6fb9a049f746167e
+前台广播为什么比后台广播快？：https://blog.csdn.net/lusing/article/details/51614173
+
+❤ 51、oom是什么？
+什么情况导致oom？
+有什么解决方法可以避免OOM？
+Oom 是否可以try catch？为什么？
+Android 内存优化之 OOM：https://juejin.im/entry/55ff85f860b2af39555c6287
+
+52、内存泄露的解决方法
+https://juejin.im/entry/57c966b05bbb500074e1d4a4
+
+53、LruCache默认缓存大小
+	LinkedHashMap原理：https://juejin.im/post/5997ff966fb9a024851009b7
+	LruCache 源码解析：https://juejin.im/entry/57c94626128fe100696402ae
+
+❤ 54、Activity栈
+四大组件之ActivityRecord：http://gityuan.com/2017/06/11/activity_record/
+https://www.cnblogs.com/mingfeng002/p/10573485.html
+Intent匹配Activity的过程:https://blog.csdn.net/Gaugamela/article/details/52765036
+
+55、Android线程有没有上限、线程池有没上限？
+java&android线程池-Executor框架:https://blog.csdn.net/javazejian/article/details/50890554
+线程池有没有上限？
+
+56、ListView重用的是什么？
+Android性能优化之Listview（ViewHolder重用机制）：https://blog.csdn.net/u010687392/article/details/45620541
+
+57、Android为什么引入Parcelable？
+有没有尝试简化Parcelable的使用？
+https://juejin.im/post/58eb9d59ac502e4957cf1337
+
+58、Android O 对隐式广播的限制以及对策
+https://blog.lvwind.com/android-o-broadcast/
+
+❤ 59、JobScheduler
+android 性能优化JobScheduler使用及源码分析：https://juejin.im/entry/5a45d979518825256362fcc0
+理解JobScheduler机制：http://gityuan.com/2017/03/10/job_scheduler_service/
+
+❤ 60、Binder
+https://blog.csdn.net/carson_ho/article/details/73560642
+
+❤ 61、ANR分析、ANR产生的原因是什么？
+原因：KeyDispatchTimeout、BroadcastTimeout、ServiceTimeout
+Android ANR分析详解：https://www.jianshu.com/p/d19c34e7e9bd
+ANR产生的原因及定位分析：https://juejin.im/entry/597026806fb9a06bcb7fc660
+ANR原理：http://gityuan.com/2016/07/02/android-anr/
+
+❤ 62、lowmemory机制
+Android LowMemoryKiller原理分析：http://gityuan.com/2016/09/17/android-lowmemorykiller/
+Android进程调度之adj算法：http://gityuan.com/2016/08/07/android-adj/
+
+63、硬件加速底层原理
+
+64、软件渲染性能瓶颈底层原理
+
+四、框架源码
+65、RxJava
+https://maxwell-nc.github.io/android/rxjava2-1.html
+
+
+Retrofit
+Picasso、Glide
+插件化框架(VirtualApk)
+ButterKnife
+Dagger2
+数据库框架
+谈谈对Volley的理解
+
+五、性能优化
+胡凯-Android性能优化典范
+第1季：http://hukai.me/android-performance-patterns/
+第2季：http://hukai.me/android-performance-patterns-season-2/
+第3季：http://hukai.me/android-performance-patterns-season-3/
+第4季：http://hukai.me/android-performance-patterns-season-4/
+第5季：http://hukai.me/android-performance-patterns-season-5/
+第6季：http://hukai.me/android-performance-patterns-season-6/
+Android性能优化之内存篇:http://hukai.me/android-performance-memory/
+
+Android memory
+和Android Memory谈一场不分手的恋爱：http://www.woaitqs.cc/2016/03/30/in-love-with-android-memory/
+Android内存泄漏定位、分析、解决全方案：http://tryenough.com/android-momeryleak
+
+
+六、开发中常见的一些问题
+Android性能优化全方面解析：https://juejin.im/post/5a0d30e151882546d71ee49e
+
+ListView 中图片错位的问题是如何产生的?
+混合开发有了解吗？
+知道哪些混合开发的方式？说出它们的优缺点和各自使用场景？（解答：比如:RN，weex，H5，小程序，WPA等。做Android的了解一些前端js等还是很有好处的)；
+屏幕适配的处理技巧都有哪些?
+服务器只提供数据接收接口，在多线程或多进程条件下，如何保证数据的有序到达？
+动态布局的理解
+怎么去除重复代码？
+画出 Android 的大体架构图
+Recycleview和ListView的区别
+ListView图片加载错乱的原理和解决方案
+动态权限适配方案，权限组的概念
+Android系统为什么会设计ContentProvider？
+下拉状态栏是不是影响activity的生命周期
+如果在onStop的时候做了网络请求，onResume的时候怎么恢复？
+Bitmap 使用时候注意什么？
+Bitmap的recycler()
+Android中开启摄像头的主要步骤
+ViewPager使用细节，如何设置成每次只初始化当前的Fragment，其他的不初始化？
+点击事件被拦截，但是想传到下面的View，如何操作？
+微信主页面的实现方式
+微信上消息小红点的原理
+CAS介绍（这是阿里巴巴的面试题，我不是很了解，可以参考博客: CAS简介）
