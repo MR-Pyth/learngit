@@ -6,3 +6,6 @@ https://github.com/justjavac/free-programming-books-zh_CN
 
 ## 安卓进阶之路精简版
 https://github.com/liu402883451/Android-Advance
+
+## 安卓进阶书籍推荐
+https://www.jianshu.com/p/49baca8fd52e
